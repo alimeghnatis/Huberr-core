@@ -1,0 +1,41 @@
+/* @fwrlines/generator-react-component 1.5.0 */
+
+/*
+
+Classes :
+.icon_list : default
+
+*/
+
+$default-icon:"'    '"; //We provide an empty default
+$iconFontName:"icons";
+$paddingRight:.5em;
+$paddingLeft:2em;
+
+.icon_list {
+  list-style: none;
+  padding-left: $paddingLeft;
+
+  li {
+    position: relative;
+
+    &::before {
+      color: var(--list-icon-color, var(--x));
+      content: var(--list-icon, #{$default-icon});
+      font-family: var(--font-icon);
+      left: -2em;
+      padding-right: $paddingRight;
+      position: absolute;
+      top: .2em;
+      white-space: pre;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        color: var(--list-icon-color-hover, var(--x));
+        content: var(--list-icon-hover, var(--list-icon, #{$default-icon}));
+      }
+    }
+  }
+}

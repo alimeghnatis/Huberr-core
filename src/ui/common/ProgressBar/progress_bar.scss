@@ -1,0 +1,24 @@
+/* @fwrlines/generator-react-component 1.5.0 */
+
+/*
+
+Classes :
+.progress_bar : default
+
+*/
+$transitionDuration:.3s;
+
+svg.progress_bar {
+  //position: absolute;
+  top: 0;
+  width: 100%;
+
+  [id^="active"] {
+    stroke-dashoffset: var(--stroke-dashoffset, 50);
+    transition: all $transitionDuration;
+  }
+
+  rect[id^="pb_back"] {
+    fill: var(--x, var(--primary));
+  }
+}

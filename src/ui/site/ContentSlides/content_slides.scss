@@ -1,0 +1,164 @@
+/* @fwrlines/generator-react-component 1.5.0 */
+
+/*
+
+Classes :
+.content_slides : default
+
+*/
+@use "@fwrlines/stylebook/src/mixins";
+@use "@fwrlines/stylebook/src/globals" as *;
+
+$slideWidth:800px;
+
+.content_slides {
+  display: flex;
+  flex-direction: column;
+
+
+  position: relative;
+
+
+  main {
+    grid-area: content;
+  }
+
+  .slide {
+    &:not(.active) {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      visibility: hidden;
+      z-index: -1;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .inside {
+
+    }
+  }
+
+  .horizontal_bar {
+    border-bottom: 1px solid var(--dark-y);
+    padding-bottom: 5px;
+
+    .progress_bar {
+      display: block;
+      left: -1px;
+      position: relative;
+      top: -1px;
+    }
+
+    .inside {
+      align-items: center;
+      justify-content: space-between;
+
+      .left {
+        flex: 1,;
+      }
+
+      .title p {
+        margin-top: .3em;
+      }
+
+      &::after {
+        content: "";
+        flex: 1;
+      }
+    }
+  }
+
+  main.content {
+    flex: 1 0 1px;
+  }
+
+  .side_bar {
+    .inside {
+      padding: var(--u);
+    }
+  }
+
+  .horizontal_bar,
+  .sidebar {
+    grid-area: menu;
+  }
+
+  @include mixins.media($to:$sm-md) {
+    height: 100%;
+
+    main.content {
+      height: 100%;
+      overflow: auto;
+    }
+
+    .side_bar {
+      display: none;
+    }
+
+    .slide {
+      height: 100%;
+
+
+      & > .inside {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        & > .inside {
+          flex: 1 0 1px;
+          overflow-y: auto;
+        }
+
+        .navigator {
+          margin-top: auto;
+        }
+
+        .button {
+          --r: 0;
+          width: 100%;
+        }
+      }
+    }
+
+    .l-resgrid:last-child {
+      margin-bottom: var(--u);
+    }
+  }
+
+  @include mixins.media($from:$sm-md) {
+    display: grid;
+    grid-template-areas: "menu content";
+    grid-template-columns: minmax(250px, 330px) 1fr;
+
+    main.content {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .horizontal_bar {
+      display: none;
+    }
+
+    .slide {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding: var(--u);
+      width: $slideWidth;
+
+      .inside {
+
+      }
+
+      .navigator {
+        //margin-top: 1em;
+        //text-align: right;
+      }
+    }
+  }
+}

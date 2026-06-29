@@ -1,0 +1,61 @@
+/*
+
+Classes :
+.label : default
+
+*/
+$background: var(--x, transparent);
+$regular-border-radius: var(--theme-border-radius);
+$color: var(--on-x, var(--subtitle));
+$padding-top:.3em;
+$padding-side:.5em;
+$padding-bottom:.4em;
+$padding:$padding-top $padding-side $padding-bottom;
+$rounded-border-radius:$padding-top + $padding-bottom + 1em;
+//$circle-min-dimension:$rounded-border-radius;
+$vertical-align-in-headings:top;
+$margin-bottom:.3em;
+$font-weight:bold;
+$vertical-align:bottom;
+$line-height:.9em;
+
+.label {
+  background: $background;
+  border-radius: $regular-border-radius;
+  color: $color;
+  display: inline-block;
+  //font-family: $fontFamily;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  margin-bottom: $margin-bottom;
+  padding: $padding;
+  vertical-align: $vertical-align;
+
+  &.rounded {
+    border-radius: $rounded-border-radius;
+    //min-height: $circle-min-dimension;
+    //min-width: $circle-min-dimension;
+  }
+
+  /*
+  &.i {
+    padding: $padding-top $padding-top $padding-bottom;
+    vertical-align: unset;
+  }
+*/
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5, {
+  & .label {
+    vertical-align: $vertical-align-in-headings;
+  }
+}

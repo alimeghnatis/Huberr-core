@@ -1,0 +1,14 @@
+/*
+
+Classes :
+.loader_bars : default
+
+*/
+
+$stroke-color:var(--x, var(--primary));
+
+svg.loader_bars {
+  line {
+    stroke: $stroke-color;
+  }
+}

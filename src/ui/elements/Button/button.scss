@@ -1,0 +1,330 @@
+/*
+
+Classes :
+.button : default
+
+*/
+
+$paddingSide:.6em;
+$paddingTop:.5em;
+$paddingBottom:.55em;
+$padding:$paddingTop $paddingSide $paddingBottom;
+$padding-icon-general:$paddingTop;
+$compact-size-factor:.7;
+$compact-padding-side:$compact-size-factor * $paddingSide;
+$compact-padding-top:$compact-size-factor * $paddingTop;
+$compact-padding-bottom:$compact-size-factor * $paddingBottom;
+$compact-padding:$compact-padding-top $compact-padding-side $compact-padding-bottom;
+$fontFamily:var(--fp);
+$fontWeight:bold;
+$willChange:"";
+$tapColor:transparent;
+$lineHeight:1.3em;
+$iconOpacity:.9;
+$iconOpacityHover:.96;
+$iconBackOpacity:.2;
+$iconBackOpacityHover:.4;
+$iconBackWidth:2em;
+$iconPadding:$paddingTop $padding-icon-general $paddingBottom;
+$compact-padding-icon:$compact-size-factor * $paddingTop $compact-size-factor * $padding-icon-general $compact-size-factor * $paddingBottom;
+$iconTransitionMovement:.25em;
+$iconTransitionTime:.3s;
+
+.button {
+  //height:min-content;
+  background: var(--x, var(--metadata));
+  border: 0;
+  border-radius: var(--theme-border-radius);
+  color: var(--on-x, var(--paragraph));
+  cursor: pointer;
+  font-family: $fontFamily;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: $tapColor;
+  user-select: none;
+  will-change: $willChange;
+
+  &:not(.i) {
+    padding: $padding;
+
+    &.compact {
+      padding: $compact-padding;
+
+      :not(.g-button) > & {
+        height: $lineHeight + $compact-padding-top + $compact-padding-bottom;
+      }
+    }
+  }
+
+  :not(.g-button) > & {
+    height: $lineHeight + $paddingTop + $paddingBottom;
+  }
+
+
+  &:disabled {
+    background: var(--light-x, var(--dark-white));
+    color: var(--on-x, var(--dark-grey));
+    cursor: unset;
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      background: var(--light-x, var(--dark-white));
+    }
+
+    &:focus,
+    &:active {
+      background: var(--x, var(--light-grey));
+    }
+  }
+
+  &.il {
+    padding-left: $paddingSide + $iconBackWidth;
+
+    &.compact {
+      padding-left: $compact-padding-side + $iconBackWidth;
+    }
+  }
+
+  &.ir {
+    padding-right: $paddingSide + $iconBackWidth;
+
+    &.compact {
+      padding-right: $compact-padding-side + $iconBackWidth;
+    }
+  }
+
+  &.ic  {
+    padding: $padding-icon-general;
+
+    &.compact {
+      padding: $compact-size-factor * $padding-icon-general;
+    }
+  }
+
+  &.ir,
+  &.il {
+    i {
+      bottom: 0;
+      line-height: $lineHeight;
+      opacity: $iconOpacity;
+      padding: $iconPadding;
+      position: absolute;
+      top: 0;
+      transition: all $iconTransitionTime;
+      z-index: 0;
+
+      &::before {
+        bottom: 0;
+        content: " ";
+        position: absolute;
+        top: 0;
+        transition: all $iconTransitionTime;
+        width: $iconBackWidth;
+        z-index: -1;
+      }
+    }
+
+    &.compact {
+      i {
+        padding: $compact-padding-icon;
+      }
+    }
+
+    &:not(.simple) i {
+      &::before {
+        background: var(--white);
+        opacity: $iconBackOpacity;
+      }
+    }
+
+
+    &[class*="bh-"] {
+      &:hover,
+      &:focus {
+        i {
+          opacity: $iconOpacityHover;
+
+          &::before {
+            opacity: $iconBackOpacityHover;
+          }
+        }
+      }
+
+      &:active {
+        i {
+          //box-shadow: var(--ish-sm);
+        }
+      }
+    }
+  }
+
+  &.i i,
+  &.il i {
+    left: 0;
+
+    &::before {
+      left: 0;
+    }
+  }
+
+  &.i i,
+  &.ir i {
+    right: 0;
+
+    &::before {
+      right: 0;
+    }
+  }
+
+  &.it {
+    &:hover,
+    &:focus,
+    &:active {
+      &.il {
+        i {
+          transform: translateX(-#{$iconTransitionMovement});
+
+          &::before {
+            width: $iconBackWidth + $iconTransitionMovement;
+          }
+        }
+      }
+
+      &.ir {
+        i {
+          transform: translateX(#{$iconTransitionMovement});
+
+          &::before {
+            width: $iconBackWidth + $iconTransitionMovement;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.bomb {
+    border: var(--theme-border);
+    border-radius: 0 3em 3em 0;
+    color: var(--paragraph);
+    font-family: var(--font-subtitle, var(--font-paragraph));
+    font-size: var(--s-1);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+
+    --on-x: var(--paragraph);
+
+    &.ir i,
+    &.il i {
+      background: transparent;
+
+      &::before {
+        background: transparent;
+      }
+    }
+
+    &:disabled {
+      text-decoration: line-through;
+    }
+
+    &.left {
+      border: var(--theme-border);
+      border-radius: 3em 0 0 3em;
+    }
+  }
+}
+
+.group.buttons {
+  display: flex;
+
+  &.indep.indep {
+    .button {
+      border-radius: var(--r) !important;
+    }
+
+    &:not(.vrt) {
+      & > a + a,
+      & > a + .button,
+      & > .button + a,
+      .button + .button {
+        margin-left: .25rem;
+      }
+    }
+
+    &.vrt {
+      & > a + a,
+      & > a + .button,
+      & > .button + a,
+      .button + .button {
+        margin-top: .25rem;
+      }
+    }
+  }
+
+  &:not(.vrt) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    .button {
+      border-radius: 0;
+    }
+
+    > *:not(.button) {
+      > .button {
+        height: inherit;
+      }
+    }
+
+    > :first-child,
+    > :first-child .button, {
+      border-radius: var(--rl);
+    }
+
+    > :last-child,
+    > :last-child .button, {
+      border-radius: var(--rr);
+    }
+
+    > :last-child:first-child,
+    > :last-child:first-child .button {
+      border-radius: var(--r);
+    }
+  }
+
+  &.vrt {
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .button {
+      border-radius: 0;
+    }
+
+    > *:not(.button) {
+      width: 100%;
+
+      > .button {
+        width: inherit;
+      }
+    }
+
+
+    > :first-child,
+    > :first-child .button, {
+      border-radius: var(--rt);
+    }
+
+    > :last-child,
+    > :last-child .button, {
+      border-radius: var(--rb);
+    }
+
+    > :last-child:first-child,
+    > :last-child:first-child .button {
+      border-radius: var(--r);
+    }
+  }
+}

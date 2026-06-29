@@ -1,0 +1,45 @@
+/*
+
+Classes :
+.loader_circle : default
+
+*/
+
+$animation-duration:var(--animation-duration, 2s);
+$stroke-color:var(--x, var(--primary));
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-anim {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+svg.loader_circle {
+  transform-origin: center center;
+  margin: auto;
+  animation: rotate $animation-duration linear infinite;
+
+  circle {
+    animation: dash-anim $animation-duration ease-in-out infinite;
+    stroke: $stroke-color;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+}

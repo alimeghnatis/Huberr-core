@@ -1,0 +1,22 @@
+/* @fwrlines/generator-react-component 2.5.1 */
+
+/*
+
+Classes :
+.phone_number_link : default
+
+*/
+
+.phone_number_link {
+  -moz-font-feature-settings: "onum";
+  -moz-font-feature-settings: "onum=1";
+  -ms-font-feature-settings: "onum";
+  -o-font-feature-settings: "onum";
+  -webkit-font-feature-settings: "onum";
+  font-feature-settings: "onum";
+  font-variant-numeric: oldstyle-nums;
+
+  .fi {
+    vertical-align: sub;
+  }
+}
