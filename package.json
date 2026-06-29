@@ -1,11 +1,11 @@
 {
-  "name": "@fwrlines/ds.core",
-  "author": "",
-  "version": "2.0.0",
-  "description": "",
+  "name": "Huberr-core",
+  "author": "alimg.dev",
+  "version": "0.0.1",
+  "description": "core design system for persian websites using react components",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
-  "repository": "github:fwrlines/ds",
+  "repository": "github:alimeghnatis/Huberr-core",
   "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

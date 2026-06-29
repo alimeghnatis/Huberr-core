@@ -10,7 +10,7 @@ export default {
 
 export const ToStorybook = () => (
   <>
-    <h1>Welcome to Fwrlines / Design System</h1>
+    <h1>Welcome to HuberrAva Core / Design System</h1>
     <p>
       Version
       { packageInfo.version }
@@ -19,7 +19,7 @@ export const ToStorybook = () => (
     <p>
       The source code of this library is available on
       {' '}
-      <a href='https://github.com/fwrlines/ds.core'>GitHub</a>
+      <a href='https://github.com/alimeghnatis/huberr-core'>GitHub</a>
       .
     </p>
     <p>

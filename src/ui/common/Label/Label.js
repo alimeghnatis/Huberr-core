@@ -39,7 +39,6 @@ const Label = ({
   ...otherProps
 }) => {
 
-
   return (
     <Wrapper
       className={
