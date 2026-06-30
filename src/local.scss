@@ -4,3 +4,20 @@
 :root {
   --theme-border: 2px solid var(--paragraph);
 }
+
+@font-face {
+  font-display: swap;
+  font-family: "IRANSans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/Iraniansans.woff2") format("woff2");
+}
+
+* {
+  font-family: "IRANSans", "Tahoma", sans-serif;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+}

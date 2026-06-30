@@ -5,12 +5,11 @@ export default {
 }
 
 const elements = [
-  '1 brocoli',
-  '1kg of oranges',
-  '6 apples',
-  'Some dried raisins',
-  'This exotic ingredient that\'s hard to find',
-  'Three pieces of garlinc',
+  '۱ عدد سیب',
+  '۲ کیلو پیاز',
+  'سه تا هویچ',
+  'موادی خاص',
+  'مقداری برنچ'
 ]
 
 export const UnorganizedList = () =>(

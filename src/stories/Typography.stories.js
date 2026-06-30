@@ -9,7 +9,7 @@ export default {
   title:'Typography'
 }
 
-const paragraph_text = `Depending on the angle of approach, comets and asteroids straying too close to Saturn in the early solar system would have become locked into radically different orbits around the planet. Only three of the new moons have so-called prograde orbits, meaning they circle Saturn in the same direction that it rotates. The other 17 are in retrograde orbits, meaning they orbit the planet backwards. One is the most distant moon ever spotted from the planet. Please call this number for more information 555-119-0285.`
+const paragraph_text = `لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.`
 
 export const HeadingTypeset = () => (
   <Typeset
